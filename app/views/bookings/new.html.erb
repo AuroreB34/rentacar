@@ -1,0 +1,26 @@
+<!-- app/views/bookings/new.html.erb -->
+<h1>Nouvelle réservation</h1>
+
+<%= form_with url: bookings_path, method: :post do |form| %>
+  <%= csrf_meta_tags %>
+
+<%= form.label :start_date, 'Date de début:' %>
+  <%= form.date_field :start_date %>
+
+
+
+
+    <%= form.submit "Submit" %>
+  <% end %>
+
+<p>Selected Date: <%= params[:start_date] %></p>
+
+
+
+
+<% if @booking %>
+  <div>
+    <h2>Récapitulatif de votre réservation :</h2>
+    <p>Date de fin : <%= @booking.end_date %></p>
+  </div>
+<% end %>

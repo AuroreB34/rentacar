@@ -1,0 +1,25 @@
+<!-- app/views/cars/index.html.erb -->
+
+<h1>Liste des voitures</h1>
+
+<table>
+
+  <% @cars.each do |car| %>
+    <div class="card" style="width: 18rem;">
+        <%= image_tag url_for(car.photo) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= car.brand %> <%= car.model %></h5>
+        <p class="card-text"><%= car.year %></p>
+        <p class="card-text"><%= car.matriculation %></p>
+        <%= link_to 'Voir', car_path(car), class: "btn btn-primary" %>
+
+      </div>
+    </div>
+  <% end %>
+
+
+</table>
+
+
+
+<%# <%= link_to "Ajouter une voiture", new_car_path, class: "btn btn-success" %>

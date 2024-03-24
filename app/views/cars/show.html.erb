@@ -1,0 +1,19 @@
+<!-- app/views/cars/show.html.erb -->
+
+<h1>Détails de la voiture <%= @car.brand %> <%= @car.model %></h1>
+
+<dl>
+  <dt>Marque :</dt>
+  <dd><%= @car.brand %></dd>
+
+  <dt>Modèle :</dt>
+  <dd><%= @car.model %></dd>
+
+  <dt>Année :</dt>
+  <dd><%= @car.year %></dd>
+
+  <dt> Immatriculation : </dt>
+  <dd><%= @car.matriculation %></dd>
+</dl>
+<%= link_to "Book", new_booking_path, class: "btn btn-secondary" %>
+<%= link_to "Retour", cars_path, class: "btn btn-secondary" %>

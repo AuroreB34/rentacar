@@ -1,0 +1,16 @@
+<!-- app/views/users/show.html.erb -->
+
+<h1>Profil de <%= @user.username %></h1>
+
+<dl>
+  <dt>Nom :</dt>
+  <dd><%= @user.last_name %></dd>
+
+  <dt>Prénom :</dt>
+  <dd><%= @user.first_name %></dd>
+
+  <!-- Ajoutez d'autres informations sur l'utilisateur selon vos besoins -->
+</dl>
+
+<%= link_to "Modifier mon profil", edit_user_path(@user), class: "btn btn-primary" %>
+<%= link_to "Retour", users_path, class: "btn btn-secondary" %>

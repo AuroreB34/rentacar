@@ -1,0 +1,66 @@
+
+
+
+<!--
+<%= form_with url: '/bookings', method: :post do |form| %>
+  <%= form.label :selected_date, 'Select Date:' %>
+  <%= form.date_field :selected_date, id: 'selected_date_field' %>
+  <%= form.submit 'Submit' %>
+<% end %>
+
+<% if params[:bookings] && params[:bookings][:selected_date] %>
+  <p>Selected Date: <%= params[:bookings][:selected_date] %></p>
+<% end %>
+
+
+
+-->
+
+
+<!-- app/views/bookings/new.html.erb
+
+<h1>Réserver une voiture</h1>
+
+<%= form_with(model: @booking, local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :start_date, "Date de début" %>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date, "Date de fin" %>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id, "ID de l'utilisateur" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :car_id, "ID de la voiture" %>
+    <%= form.text_field :car_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Réserver la voiture" %>
+  </div>
+<% end %>
+
+<%= link_to "Retour à la liste des voitures", cars_path %> -->
+
+
+<!-- app/views/bookings/index.html.erb -->
+<h1>Liste des réservations</h1>
+
+<% @bookings.each do |booking| %>
+  <div>
+    <p>Date de réservation : <%= booking.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+    <!-- Autres détails de la réservation ici -->
+    <%= link_to "Voir le récap", booking_path(booking), class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Retour à la liste des voitures", cars_path %>
